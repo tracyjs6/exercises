@@ -200,3 +200,28 @@
   false))
 
 
+;;;;;;;;;
+;;; Structured Data
+;;;;;;;;;
+
+;;;
+; Exercise 1
+; The following function does a thing:
+;   (defn do-a-thing [x]
+;     (Math/pow (+ x x) (+ x x)))
+; Change the function do-a-thing so that it uses let to give a name to the common expression (+ x x) in its body. 
+;;;
+
+(defn do-a-thing [x]
+  (let [xx (+ x x)]
+    (Math/pow xx xx)))
+
+(defn spiff [v]
+  (let [a (get v 0)
+       b (get v 2)]
+       (+ a b)))
+
+
+
+
+
