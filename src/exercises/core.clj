@@ -216,12 +216,48 @@
   (let [xx (+ x x)]
     (Math/pow xx xx)))
 
+;;;
+; Exercise 2
+; Write the function (spiff v) that takes a vector and returns the sum of the first and third elements of the vector.
+;;;
+
 (defn spiff [v]
   (let [a (get v 0)
        b (get v 2)]
        (+ a b)))
 
+;;;
+; Exercise 3
+; Write the function (cutify v) that takes a vector as a parameter and adds "<3" to its end.
+;;;
 
+(defn cutify [v]
+  (conj v "<3"))
+
+;;;
+; Exercise 4
+; Rewrite our earlier function spiff by destructuring its parameter. Call this new function spiff-destructuring
+;;;
+
+(defn spiff-destructuring [v]
+  (let [[x y z] v]
+    (+ x z)))
+
+;;;
+; Exercise 5
+; Write the functions (height rectangle) and (width rectangle) that return the height and width of the given rectangle. Use destructuring.
+;
+
+(defn rectangle [bottom-left top-right]
+  [bottom-left top-right])
+
+(defn height [rectangle] 
+  (let [[[x1 y1] [x2 y2]] rectangle]
+    (- y2 y1)))
+
+(defn width [rectangle]
+  (let [[[x1 y1] [x2 y2]] rectangle]
+    (- x2 x1)))
 
 
 

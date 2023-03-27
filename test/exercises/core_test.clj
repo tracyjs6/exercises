@@ -2,6 +2,10 @@
    (:use midje.sweet
    [exercises.core]))
 
+;;;
+; Training Day
+;;;
+
 (facts "square"
   (square 2) => 4
   (square 3) => 9)
@@ -9,6 +13,10 @@
 (facts "average"
   (average 2 4) => 3
   (average 1 2) => 3/2)
+
+;;;
+; I am a horse in the land of booleans
+;;;
 
 (facts "my-bool"
   (my-bool "blah") => true
@@ -64,4 +72,34 @@
   (leap-year? 20)  => true
   (leap-year? 15)  => false)
 
+;;;
+; Structured Data
+;;;
 
+(facts "do-a-thing"
+  (do-a-thing 3) => 46656.0
+  (do-a-thing 1) => 4.0
+  (do-a-thing 0) => 1.0)
+
+(facts "spiff"
+  (spiff [1 2 3]) => 4
+  (spiff [1 2 -34 4 5 6]) => -33)
+
+(facts "cutify"
+  (cutify []) => ["<3"]
+  (cutify [1 2 3]) => [1 2 3 "<3"]
+  (cutify ["a" "b"]) => ["a" "b" "<3"])
+
+(facts "spiff-destructuring"
+  (spiff-destructuring [1 2 3]) => 4
+  (spiff-destructuring [1 2 -34 4 5 6]) => -33)
+
+(facts "height rectangle"
+  (height (rectangle [1 1] [5 1])) => 0
+  (height (rectangle [1 1] [5 5])) => 4
+  (height (rectangle [0 0] [2 3])) => 3)
+
+(facts "width rectangle"
+  (width (rectangle [1 1] [5 1]))  => 4
+  (width (rectangle [1 1] [1 1]))  => 0
+  (width (rectangle [3 1] [10 4])) => 7)
