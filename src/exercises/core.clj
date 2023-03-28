@@ -259,5 +259,45 @@
   (let [[[x1 y1] [x2 y2]] rectangle]
     (- x2 x1)))
 
+;;;
+; Exercise 6
+; Write the function (square? rectangle) that returns true if rectangle is a square and otherwise false
+;
 
+(defn square? [rectangle]
+  (let [[[x1 y1] [x2 y2]] rectangle]
+    (if (== (- x2 x1) (- y2 y1))
+      true
+      false)))
 
+;;;
+; Exercise 7
+; Write the function (area rectangle) that returns the area of the given rectangle
+;;;
+
+(defn area [rectangle]
+  (let [[[x1 y1] [x2 y2]] rectangle]
+    (* (- x2 x1) (- y2 y1))))
+
+;;;
+; Exercise 8
+; Write the function (contains-point? rectangle point) that returns true if rectangle contains point and otherwise false.
+; Remember that you can give <= multiple parameters. (<= x y z) returns true if x≤y≤z holds. Otherwise false.
+; Hint: and is useful. Use destructuring.
+;;;
+
+(defn point [a b]
+  [a b])
+
+; This works
+;(defn contains-point? [rectangle point]
+;  (let [[[x1 y1] [x2 y2]] rectangle
+;    [x3 y3] point]
+;  (println x1 y1 x2 y2 x3 y3)))
+
+(defn contains-point? [rectangle point]
+  (let [[[x1 y1] [x2 y2]] rectangle
+    [x3 y3] point]
+      (if (and (<= x1 x3 x2) (<= y1 y3 y2))
+        true
+        false)))
