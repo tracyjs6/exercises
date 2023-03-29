@@ -301,3 +301,25 @@
       (if (and (<= x1 x3 x2) (<= y1 y3 y2))
         true
         false)))
+
+;;;
+; Exercise 9
+; Write the function (contains-rectangle? outer inner) that returns true if the rectangle inner is inside the rectangle outer and otherwise false.
+;;;
+
+; This works
+;(defn contains-rectangle? [outer inner]
+;  (let [[[outer-x1 outer-y1] [outer-x2 outer-y2]] outer
+;        [[inner-x1 inner-y1] [inner-x2 inner-y2]] inner]
+;  (println [outer-x1 outer-y1] [outer-x2 outer-y2] 
+;           inner-x1 inner-y1 inner-x2 inner-y2)))
+
+(defn contains-rectangle? [outer inner]
+  (let [[[outer-x1 outer-y1] [outer-x2 outer-y2]] outer
+        [[inner-x1 inner-y1] [inner-x2 inner-y2]] inner]
+    (if (and (contains-point? (rectangle [outer-x1 outer-y1] [outer-x2 outer-y2]) (point inner-x1 inner-y1))
+           (contains-point? (rectangle [outer-x1 outer-y1] [outer-x2 outer-y2]) (point inner-x2 inner-y2)))
+    true
+    false)))
+
+
